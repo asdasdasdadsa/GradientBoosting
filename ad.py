@@ -1,7 +1,5 @@
 import numpy as np
 import dt
-import plotly.figure_factory as ff
-import plotly.express as px
 
 
 class AD():
@@ -46,28 +44,3 @@ class AD():
     def MSE(self, dn, cl):
         s = np.sum((cl - self.pass_ad_all(dn))**2) / len(dn)
         return s
-
-    # def confusion_matrix(self, dn, cl):
-    #     TP, TN, FP, FN = 0, 0, 0, 0
-    #     for i in range(len(dn)):
-    #         if self.pass_ad(dn[i]) == cl[i]:
-    #             if cl[i] == 1:
-    #                 TP += 1
-    #             else:
-    #                 TN += 1
-    #         else:
-    #             if cl[i] == 1:
-    #                 FN += 1
-    #             else:
-    #                 FP += 1
-    #     precision = TP / (TP + FP)
-    #     recall = TP / (TP + FN)
-    #     f1_score = 2 * precision * recall / (precision + recall)
-    #     z = [[TP, FP], [FN, TN]]
-    #     test = ['1', '-1']
-    #     z_text = [[str(TP), str(FP)], [str(FP), str(TN)]]
-    #     # fig = ff.create_annotated_heatmap(z, x=test, y=test, annotation_text=z_text)
-    #     # fig.show()
-    #     fig = px.imshow(z, text_auto=True, title="precision = " + str(precision) + "; recall = " + str(recall) +
-    #                                              "; f1_score = " + str(f1_score))
-    #     fig.show()
